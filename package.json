@@ -1,0 +1,22 @@
+{
+  "name": "yugustore-ecommerce-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaqoob-Aslam/Yugustore-Ecommerce-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaqoob-Aslam/Yugustore-Ecommerce-Website/issues"
+  },
+  "homepage": "https://github.com/Yaqoob-Aslam/Yugustore-Ecommerce-Website#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0"
+  }
+}
