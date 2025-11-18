@@ -1,3 +1,4 @@
+// yugustore-products.spec.js
 const { test, expect, chromium } = require('@playwright/test');
 import { ProductActions } from './yugustore-products.js';
 
@@ -9,7 +10,7 @@ test.describe.serial('Yugustore Clothing Brand', () => {
     browser = await chromium.launch({
       headless: false,
       args: ['--start-maximized'],
-      slowMo: 500, // ✅ Increased for better visibility
+      slowMo: 500,
     });
     context = await browser.newContext({
       viewport: null,
@@ -21,21 +22,21 @@ test.describe.serial('Yugustore Clothing Brand', () => {
     productActions = new ProductActions();
   });
 
-  test('Process all products with individual checkout flow', async () => {
-    test.setTimeout(9000000); // ✅ Increased timeout for all products
-    console.log('🎯 STARTING: All Products Individual Checkout Automation');
-    console.log('======================================================');
-    // ✅ Process all products with individual checkout
+  test('Process all products with individual checkout flow WITH PAGINATION', async () => {
+    test.setTimeout(999000000); // ✅ Increased timeout for multiple pages (20 minutes)
+    console.log('🎯 STARTING: All Products Individual Checkout Automation WITH PAGINATION');
+    console.log('========================================================================');
+    
+    // ✅ Process all products with pagination
     const results = await productActions.processAllProductsWithIndividualCheckout(page);
-    console.log('\n🏁 AUTOMATION FINISHED!');
+    console.log('\n🏁 AUTOMATION FINISHED ACROSS ALL PAGES!');
   });
 
   test('Add single product and checkout from shopping modal', async () => {
-    test.setTimeout(1800000); // ✅ Timeout for complete flow
+    test.setTimeout(180000);
 
-    // ✅ Single product add and checkout
     const checkoutResult = await productActions.addSingleProductAndCheckout(page);
-    if (checkoutResult.includes('checkout_completed')) {
+    if (checkoutResult === 'checkout_completed') {
       console.log('🎉 SUCCESS: Single product added and checkout completed!');
     } else {
       console.log(`❌ Checkout result: ${checkoutResult}`);
@@ -43,7 +44,7 @@ test.describe.serial('Yugustore Clothing Brand', () => {
   });
 
   test.afterAll(async () => {
-    // await page.pause(); 
-    await browser.close();
+    await page.pause(); 
+    // await browser.close();
   });
 });
