@@ -1,4 +1,3 @@
-// yugustore-products.spec.js
 const { test, expect, chromium } = require('@playwright/test');
 import { ProductActions } from './yugustore-products.js';
 
